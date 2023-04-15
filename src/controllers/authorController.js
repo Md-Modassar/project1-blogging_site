@@ -100,7 +100,7 @@ const loginAuthor = async function(req, res) {
     }
 
     let token = jwt.sign(
-      { authorId: validateInput._id.toString() },  "Project1-key" )
+      { authorId: validateInput._id.toString() },  "Project1-key", {expires:"1h"} )
 
     // res.setHeader("x-api-key", token)
     res.status(201).send({ token: token })
